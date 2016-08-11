@@ -2,7 +2,7 @@
 </style>
 
 <template>
-  <textarea placeholder="Balabala" autofocus></textarea>
+  <textarea v-html="content" placeholder="在这里输入内容" autofocus></textarea>
 </template>
 
 <script>
