@@ -26,15 +26,21 @@
     ready () {
       this.editor = new Simditor(
         {
-          textarea: this.$el
-          // optional options
+          textarea: this.$el,
+          upload: {
+            url: '/api_file_upload',
+            params: null,
+            fileKey: 'upload_file',
+            connectionCount: 3,
+            leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+          }
         }
       )
-
       let _this = this
       this.editor.on('valuechanged',
         function (e, src) {
           console.log(src)
+          console.log(e)
           _this.content = _this.editor.getValue()
         }
       )
