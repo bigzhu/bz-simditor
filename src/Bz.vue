@@ -6,6 +6,7 @@
 </template>
 
 <script>
+  import $ from 'jquery'
   import Simditor from 'simditor'
   import 'simditor/styles//simditor.css'
   // import store from '../store'
@@ -32,16 +33,18 @@
             params: null,
             fileKey: 'upload_file',
             connectionCount: 3,
-            leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+            leaveConfirm: '图片正在上传, 确定要离开该页面?'
           }
         }
       )
       let _this = this
       this.editor.on('valuechanged',
         function (e, src) {
-          console.log(src)
-          console.log(e)
           _this.content = _this.editor.getValue()
+          var $img = $(_this.content).find('img')
+          if (/^data:image/.test($img.attr('src'))) {
+            console.log($img.attr('alt'))
+          }
         }
       )
     },
