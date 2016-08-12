@@ -42,7 +42,7 @@
         function (e, src) {
           _this.content = _this.editor.getValue()
           var $img = $(_this.content).find('img')
-          if (/^data:image/.test($img.attr('src'))) {
+          if ($img && /^data:image/.test($img.attr('src'))) {
             console.log($img.attr('alt'))
           }
         }
