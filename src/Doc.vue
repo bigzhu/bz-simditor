@@ -12,7 +12,7 @@
       <div v-for="file in files">
         图片路径: {{file}}
       </div>
-      <simditor :content.sync="content" :files.sync="files"></simditor>
+      <bz :content.sync="content" :files.sync="files"></bz>
     </doc>
   </div>
 </template>
@@ -20,11 +20,11 @@
 <script>
   import 'bz-semantic-ui-card'
   import 'bz-semantic-ui-grid'
-  import simditor from './Bz'
+  import Bz from './Bz'
   import Doc from 'bz-doc'
   export default {
     components: {
-      simditor,
+      Bz,
       Doc
     },
     route: {
@@ -44,7 +44,7 @@
           {parm: 'files', desc: '上传的图片路径list'}
         ],
         parm_desc: `注意，如果使用的组件有路由，那么最好在切换路由的时候发送消息，解除绑定(参看本例子) <code>this.$broadcast('unbind-scroll')</code>`,
-        code: `<simditor :content.sync="content" :files.sync="files"></simditor>`
+        code: `<bz :content.sync="content" :files.sync="files"></bz>`
       }
     },
     methods: {
