@@ -23,6 +23,10 @@ module.exports = {
       '/api_': {
         target: 'https://follow.center',
         changeOrigin: true
+      },
+      '/static': {
+        target: 'https://follow.center',
+        changeOrigin: true
       }
     }
   }
