@@ -5,12 +5,14 @@
   <div>
     <doc name="bz-simditor"
       desc="富文本编辑"
-      parm_desc="编辑"
       :parms="parms"
       :code="code"
       >
       <div v-html="content"></div>
-      <bz :content.sync="content"></bz>
+      <div v-for="file in files">
+        图片路径: {{file}}
+      </div>
+      <bz :content.sync="content" :files.sync="files"></bz>
     </doc>
   </div>
 </template>
@@ -35,20 +37,17 @@
     data: function () {
       return {
         content: '<b>bigzhu</b>',
+        files: [],
         datas: [1],
         parms: [
-          {parm: 'el', desc: '使用该组件的el,主要为了把查找last限定在本el中. !注意, fragment的el是无法传递进去的'},
-          {parm: 'element_class', desc: '用于定位last的class .hah.jj 的格式'},
-          {parm: 'call_back', desc: '滚到底部的回调函数'}
+          {parm: 'content', desc: '编辑器内容'},
+          {parm: 'files', desc: '上传的图片路径list'}
         ],
         parm_desc: `注意，如果使用的组件有路由，那么最好在切换路由的时候发送消息，解除绑定(参看本例子) <code>this.$broadcast('unbind-scroll')</code>`,
-        code: `<bottom-loader :el="$el" element_class=".ui.card" :call_back="call_back"></bottom-loader>`
+        code: `<bz :content.sync="content" :files.sync="files"></bz>`
       }
     },
     methods: {
-      call_back: function () {
-        this.datas.push(this.datas.length + 1)
-      }
     }
   }
 </script>

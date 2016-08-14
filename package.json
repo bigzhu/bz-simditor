@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "simditor": "^2.3.6",
+    "simple-uploader": "^3.0.0",
     "vue": "latest"
   },
   "devDependencies": {
