@@ -7,8 +7,7 @@
 
 <script>
   import Simditor from 'simditor'
-  import 'simditor/styles//simditor.css'
-  // import store from '../store'
+  // import 'simditor/styles//simditor.css'
   export default {
     props: {
       content: {
