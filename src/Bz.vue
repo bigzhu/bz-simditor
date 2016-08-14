@@ -6,14 +6,17 @@
 </template>
 
 <script>
-  import $ from 'jquery'
   import Simditor from 'simditor'
   import 'simditor/styles//simditor.css'
-  // import store from '../store'
   export default {
     props: {
       content: {
         type: String,
+        required: true,
+        twoWay: true
+      },
+      files: {
+        type: Array,
         required: true,
         twoWay: true
       }
@@ -41,10 +44,11 @@
       this.editor.on('valuechanged',
         function (e, src) {
           _this.content = _this.editor.getValue()
-          var $img = $(_this.content).find('img')
-          if ($img && /^data:image/.test($img.attr('src'))) {
-            console.log($img.attr('alt'))
-          }
+        }
+      )
+      this.editor.uploader.on('uploadsuccess',
+        function (e, file, result) {
+          _this.files = _this.files.concat(result.files)
         }
       )
     },
