@@ -1,5 +1,5 @@
 module.exports = {
   jQuery: 'jQuery',
-  jQuery: 'jQuery',
+  jquery: 'jQuery',
   'simditor': 'Simditor'
 }
