@@ -19,7 +19,7 @@
     watch: {
       'content': function (val, oldVal) {
         if (val !== oldVal) {
-          this.editor.setValue(val)
+          this.editor.sync()
         }
       }
     },
