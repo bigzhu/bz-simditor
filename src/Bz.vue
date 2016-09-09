@@ -18,7 +18,7 @@
     },
     watch: {
       'content': function (val, oldVal) {
-        if (val !== oldVal) {
+        if (val !== this.editor.getValue()) {
           this.editor.sync()
         }
       }
