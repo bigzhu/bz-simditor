@@ -2,7 +2,7 @@
 </style>
 
 <template>
-  <textarea v-html="content" placeholder="在这里输入内容" autofocus></textarea>
+  <textarea placeholder="在这里输入内容" autofocus></textarea>
 </template>
 
 <script>
@@ -13,7 +13,8 @@
       content: {
         type: String,
         required: true,
-        twoWay: true
+        twoWay: true,
+        default: ''
       }
     },
     watch: {
@@ -50,6 +51,7 @@
           if (_this.content !== _this.editor.getValue()) _this.content = _this.editor.getValue()
         }
       )
+      this.editor.setValue(this.content)
     },
     methods: {
       addScript: function (url) {
