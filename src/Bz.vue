@@ -16,6 +16,13 @@
         twoWay: true
       }
     },
+    watch: {
+      'content': function (val, oldVal) {
+        if (val !== oldVal) {
+          this.editor.setValue(val)
+        }
+      }
+    },
     components: {
     },
     data: function () {
@@ -40,7 +47,7 @@
       let _this = this
       this.editor.on('valuechanged',
         function (e, src) {
-          _this.content = _this.editor.getValue()
+          if (_this.content !== _this.editor.getValue()) _this.content = _this.editor.getValue()
         }
       )
     },

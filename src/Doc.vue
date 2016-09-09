@@ -8,6 +8,7 @@
       :parm_desc="parm_desc"
       :parms="parms"
       :code="code"
+      :call_back="call_back"
       >
       <div v-html="content"></div>
       <bz :content.sync="content"></bz>
@@ -38,6 +39,9 @@
       }
     },
     methods: {
+      call_back: function () {
+        this.content = '<b>bigzhu</b>'
+      }
     }
   }
 </script>
