@@ -40,7 +40,7 @@
     },
     methods: {
       call_back: function () {
-        this.content = '<b>bigzhu</b>'
+        this.content = ''
       }
     }
   }

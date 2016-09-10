@@ -2,7 +2,7 @@
 </style>
 
 <template>
-  <textarea placeholder="在这里输入内容" autofocus></textarea>
+  <textarea placeholder="在这里输入内容"></textarea>
 </template>
 
 <script>
@@ -20,7 +20,7 @@
     watch: {
       'content': function (val, oldVal) {
         // if (val !== this.editor.getValue()) this.editor.setValue(val)
-        if (this.editor.getValue() === '') this.editor.setValue(val)
+        if (this.editor.getValue() === '' || val === '') this.editor.setValue(val)
       }
     },
     components: {
