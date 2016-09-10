@@ -30,7 +30,7 @@
     },
     data: function () {
       return {
-        content: '<b>bigzhu</b>',
+        content: '',
         parms: [
           {parm: 'content', desc: 'html的内容'}
         ],

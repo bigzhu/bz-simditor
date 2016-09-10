@@ -7,7 +7,6 @@
 
 <script>
   import Simditor from 'simditor'
-  // import 'simditor/styles//simditor.css'
   export default {
     props: {
       content: {
@@ -17,11 +16,11 @@
         default: ''
       }
     },
+    /* 由于上传文件的特殊处理，导致无法用下面的代码实现真正的动态绑定, 只有第一次传值进去 */
     watch: {
       'content': function (val, oldVal) {
-        if (val !== this.editor.getValue()) {
-          this.editor.setValue(val)
-        }
+        // if (val !== this.editor.getValue()) this.editor.setValue(val)
+        if (this.editor.getValue() === '') this.editor.setValue(val)
       }
     },
     components: {
@@ -41,7 +40,7 @@
             connectionCount: 3,
             leaveConfirm: '图片正在上传, 确定要离开该页面?'
           },
-          pasteImage: true
+          pasteImage: false
         }
       )
 
