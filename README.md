@@ -1,6 +1,6 @@
-# bz-base
+# bz-simditor
 
-> bz-base
+> bz-simditor
 
 ## Build Setup
 
