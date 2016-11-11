@@ -1,6 +1,3 @@
-<style lang=less>
-</style>
-
 <template>
   <div>
     <doc name="bz-simditor"
