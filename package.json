@@ -1,6 +1,6 @@
 {
   "name": "bz-simditor",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "bz-simditor",
   "main": "src/Bz.vue",
   "keywords": [
