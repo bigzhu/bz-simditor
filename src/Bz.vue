@@ -7,7 +7,7 @@
   export default {
     props: {
       content: {
-        type: String,
+        type: Object,
         required: true,
         default: ''
       }
@@ -15,7 +15,7 @@
     /* 由于上传文件的特殊处理，导致无法用下面的代码实现真正的动态绑定, 只有第一次传值进去 */
     watch: {
       'content': function (val, oldVal) {
-        if (this.editor.getValue() === '' || val === '') this.editor.setValue(val)
+        if (this.editor.getValue() === '' || val === '') this.editor.setValue(val.text)
       }
     },
     components: {
@@ -43,7 +43,8 @@
         let self = this
         this.editor.on('valuechanged',
           function (e, src) {
-            if (self.content !== self.editor.getValue()) self.$emit('change_content', self.editor.getValue())
+            let current_text = self.editor.getValue()
+            if (self.content.text !== current_text) self.content.text = current_text
           }
         )
       }

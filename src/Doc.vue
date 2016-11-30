@@ -7,8 +7,8 @@
       :code="code"
       :call_back="call_back"
       >
-      <div v-html="content"></div>
-      <bz :content="content" @change_content="setContent"></bz>
+      <div v-html="content.text"></div>
+      <bz :content="content"></bz>
     </doc>
   </div>
 </template>
@@ -28,23 +28,22 @@
     mounted () {
       let self = this
       this.$nextTick(function () {
-        setTimeout(() => { self.content = 'change the file' }, 2000)
+        setTimeout(() => { self.content.text = 'change the file' }, 2000)
       })
     },
     data: function () {
       return {
-        content: '',
+        content: {
+          text: ''
+        },
         parms: [
-          {parm: 'content', desc: 'html的内容'}
+          {parm: 'content.text', desc: 'html的内容'}
         ],
         parm_desc: ``,
-        code: `<bz :content.sync="content"></bz>`
+        code: `<bz :content="content"></bz>`
       }
     },
     methods: {
-      setContent: function (content) {
-        this.content = content
-      }
     }
   }
 </script>
