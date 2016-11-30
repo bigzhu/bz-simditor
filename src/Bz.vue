@@ -9,7 +9,6 @@
       content: {
         type: String,
         required: true,
-        twoWay: true,
         default: ''
       }
     },
@@ -41,23 +40,16 @@
           }
         )
 
-        let _this = this
+        let self = this
         this.editor.on('valuechanged',
           function (e, src) {
-            if (_this.content !== _this.editor.getValue()) _this.content = _this.editor.getValue()
+            if (self.content !== self.editor.getValue()) self.$emit('change_content', self.editor.getValue())
           }
         )
-        this.editor.setValue(this.content)
       }
       )
     },
     methods: {
-      addScript: function (url) {
-        var script = document.createElement('script')
-        script.type = 'text/javascript'
-        script.src = url
-        document.body.appendChild(script)
-      }
     }
   }
 </script>

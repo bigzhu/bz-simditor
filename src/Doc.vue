@@ -8,7 +8,7 @@
       :call_back="call_back"
       >
       <div v-html="content"></div>
-      <bz :content.sync="content"></bz>
+      <bz :content="content" @change_content="setContent"></bz>
     </doc>
   </div>
 </template>
@@ -25,6 +25,12 @@
     },
     route: {
     },
+    mounted () {
+      let self = this
+      this.$nextTick(function () {
+        setTimeout(() => { self.content = 'change the file' }, 2000)
+      })
+    },
     data: function () {
       return {
         content: '',
@@ -36,8 +42,8 @@
       }
     },
     methods: {
-      call_back: function () {
-        this.content = ''
+      setContent: function (content) {
+        this.content = content
       }
     }
   }

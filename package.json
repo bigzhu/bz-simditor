@@ -2,7 +2,7 @@
   "name": "bz-simditor",
   "version": "2.0.2",
   "description": "bz-simditor",
-  "main": "dist/main.js",
+  "main": "src/Bz.vue",
   "keywords": [
     "vue",
     "component",
@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/bigzhu/bz-simditor#readme",
   "files": [
-    "dist"
+    "src/Bz.vue",
+    "src/assets"
   ],
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/pack.js",
     "test": ""
   },
   "dependencies": {},
