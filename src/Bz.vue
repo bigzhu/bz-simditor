@@ -14,6 +14,9 @@
     /* 由于上传文件的特殊处理，导致无法用下面的代码实现真正的动态绑定, 只有第一次传值进去 */
     watch: {
       'value': function (val, oldVal) {
+        if (!this.editor) {
+          return
+        }
         if (this.editor.getValue() === '' || val === '') this.editor.setValue(val)
       }
     },
@@ -21,6 +24,7 @@
     },
     data: function () {
       return {
+        editor: null
       }
     },
     mounted () {
